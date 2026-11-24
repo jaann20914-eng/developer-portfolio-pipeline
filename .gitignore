@@ -1,0 +1,11 @@
+workspace/
+private/
+*.pptx
+*.ppt
+*.pdf
+*.env
+.env.*
+!*.example
+~$*
+.DS_Store
+Thumbs.db
