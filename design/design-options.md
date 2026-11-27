@@ -7,12 +7,16 @@
 ```yaml
 design_mode: preserve-existing
 active_option: none
+approved_options: [monotone-evidence]
 allow_automatic_switch: false
 ```
 
 - `preserve-existing`: 기존 PPT 디자인 유지
 - `option`: 사용자가 승인한 디자인 옵션 적용
+- `approved_options`: 사용자가 승인해 바로 쓸 수 있는 옵션. 승인됐어도 작업마다 사용자가 요청할 때 `active_option`으로 지정한다
 - `allow_automatic_switch: false`: AI가 임의로 디자인 옵션을 선택하거나 교체하지 않음
+
+기존 포트폴리오 PPT를 고치는 작업은 `preserve-existing`과 `monotone-evidence`의 결과가 같다. 그 PPT에서 뽑은 값이기 때문이다.
 
 ## 파일 책임
 
@@ -85,6 +89,34 @@ status: reserved
 - 구조 비교, 측정 결과, 검증 조건의 위계가 중요한 프로젝트용
 - 표와 흐름도의 가독성 규칙을 별도 정의할 예정
 - 현재 자동 적용 금지
+
+### O04. 단색 근거 중심 (현재 포트폴리오 덱)
+
+```yaml
+option:
+  id: monotone-evidence
+  name: 단색 근거 중심
+  status: approved          # 사용자 승인 2026-11-27
+  intended_use: 실시간·정합성·성능 개선처럼 구조 비교와 전후 수치가 핵심인 개발자 포트폴리오
+  avoid_when: 화면 디자인 자체가 주요 성과인 프로젝트만 모은 덱 (O02 product-visual 검토)
+  token_overrides:
+    source: design/tokens-current-deck.md
+    font_family_primary: Pretendard
+    background: "#FFFFFF"
+    text_primary: "#1A1A1A"
+    accent: "#768690"
+    spacing_scale: tokens-current-deck.md의 간격 규칙 (0.08 / 0.36 / 0.20 / 0.08 / 0.14 in)
+  visual_rules:
+    density: 한 페이지 왼쪽 텍스트 열 + 오른쪽 시각 자료 한 가지
+    alignment: 왼쪽 정렬, 섹션 제목과 본문을 같은 세로선에
+    divider_style: 문제 요약 아래 짧은 연회색 막대 1개
+    image_treatment: 대표 화면은 테두리 없음, 로고는 단색 333333
+  required_layout_version: layout-spec.md (L01~L07)
+```
+
+- 글자 색은 회색 5단계만, 강조색은 도식 안 1~2곳만
+- 상태색(초록·빨강) 대신 `X` / `O` 글자로 결과 표시
+- 차트는 연한 하늘색 단일 계열 또는 회색·하늘색 두 계열
 
 ## 옵션 추가 기준
 

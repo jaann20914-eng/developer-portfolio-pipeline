@@ -6,6 +6,7 @@
 
 다음 템플릿을 채운다.
 
+0. 최초 1회: `templates/00-profile.md` (표지·이력·기술 스택·목차), `templates/06-work-process.md` (작업 방식 페이지). 이미 있으면 새 자료로 바뀐 부분만 고친다
 1. `templates/01-project-overview.md`
 2. 담당 기능마다 `templates/02-my-contribution.md`
 3. 문제 1건마다 `templates/03-troubleshooting.md`
@@ -21,4 +22,11 @@
 - 성능 수치가 없는 정확성·보안 사례를 성능 개선으로 표현하지 않음
 - 각 주장에 원본 파일, 테스트, 로그, 커밋 중 가능한 근거 연결
 
+- 각 템플릿 맨 위의 속성 블록(`---` 사이)도 본문과 같은 기준으로 채움
+
 먼저 자료 목록, 확인 가능한 사실, 충돌하거나 부족한 정보를 정리한 뒤 템플릿 초안을 작성한다.
+
+저장:
+
+- 방식 1 · Notion: `notion/schema.md`에 따라 소재마다 레코드를 만들고 속성 블록 값을 데이터베이스 속성에 넣음
+- 방식 2 · md 파일: `markdown/schema.md`의 폴더 구조대로 `workspace/`에 파일로 저장. 파일 이름과 `소재_ID`는 바꾸지 않음
