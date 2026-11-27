@@ -2,15 +2,18 @@
 
 이 문서는 시각 값만 관리한다. 페이지 구성, 문구, 이미지 선택, 장식 규칙은 포함하지 않는다.
 
+> 아래 값은 기존 PPT가 없을 때 쓰는 범용 시작값이다. 현재 포트폴리오 덱과 같은 형식으로 만들 때는 [tokens-current-deck.md](tokens-current-deck.md)를 쓴다. 두 파일의 값을 섞어 쓰지 않는다.
+
 ## 적용 상태
 
 ```yaml
 token_mode: preserve-existing
-token_source: existing-ppt
+token_source: existing-ppt   # current-deck 이면 tokens-current-deck.md 사용
 ```
 
 - `preserve-existing`: 기존 PPT의 값을 유지
 - `custom`: 이 문서의 사용자 지정 값을 적용
+- `custom` + `token_source: current-deck`: `tokens-current-deck.md`의 값을 적용
 
 기존 PPT가 있는 작업의 기본값은 `preserve-existing`이다. 사용자가 디자인 변경을 요청하기 전에는 아래 기본값으로 기존 PPT를 덮어쓰지 않는다.
 
